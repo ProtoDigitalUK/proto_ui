@@ -1,0 +1,111 @@
+---
+import protoLogoSvg from "../assets/proto-logo.svg";
+
+// Data
+
+const NavItems = [
+  {
+    label: "Headers",
+    type: "folder",
+    children: [
+      {
+        label: "Header 1",
+        type: "file",
+        path: "/header-1",
+      },
+      {
+        label: "Header 2",
+        type: "file",
+        path: "/header-2",
+      },
+      {
+        label: "Header 3",
+        type: "file",
+        path: "/header-3",
+      },
+    ],
+  },
+  {
+    label: "Heros",
+    type: "folder",
+    children: [
+      {
+        label: "Hero 1",
+        type: "file",
+        path: "/hero-1",
+      },
+      {
+        label: "Hero 2",
+        type: "file",
+        path: "/hero-2",
+      },
+      {
+        label: "Hero 3",
+        type: "file",
+        path: "/hero-3",
+      },
+    ],
+  },
+  {
+    label: "Call to Actions",
+    type: "folder",
+    children: [
+      {
+        label: "Call to Action 1",
+        type: "file",
+        path: "/call-to-action-1",
+      },
+      {
+        label: "Call to Action 2",
+        type: "file",
+        path: "/call-to-action-2",
+      },
+      {
+        label: "Call to Action 3",
+        type: "file",
+        path: "/call-to-action-3",
+      },
+    ],
+  },
+];
+---
+
+<nav
+  class="h-screen w-[300px] bg-ui-background-alt border-r border-ui-background-border p-5"
+>
+  <img src={protoLogoSvg.src} alt="Proto Digital" class="h-6" />
+  <ul class="mt-10">
+    {
+      NavItems.map((item) => (
+        <li class="mb-2.5 last:mb-0">
+          <details class="">
+            <summary class="text-ui-text-primary font-bold flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="16"
+                width="16"
+                viewBox="0 0 512 512"
+                class="fill-white"
+              >
+                <path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z" />
+              </svg>
+              <span class="ml-2.5 text-white">{item.label}</span>
+            </summary>
+            <ul class="mt-2">
+              {item.children.map((child) => (
+                <li class="mb-2 last:mb-0">
+                  <a
+                    href={child.path}
+                    class="text-ui-text-secondary hover:text-ui-text-primary text-gray-200"
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
