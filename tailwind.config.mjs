@@ -12,6 +12,10 @@ export default {
         "ui-background-border": "#333333",
         "ui-background-text": "#ffffff",
         "ui-background-accent": "#9C92FC",
+
+        "ui-accent-1": "#6554FB",
+        "ui-accent-2": "#ECE24E",
+        "ui-accent-3": "#69F380",
       },
     },
   },

@@ -1,0 +1,35 @@
+---
+// Components
+import Link from "@/components/partials/Link.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  links?: {
+    href: string;
+    label: string;
+  }[];
+}
+
+const { title, description, links } = Astro.props;
+---
+
+<section class="w-full bg-ui-accent-1">
+  <div class="ui__wrapper py-20">
+    <h1 class="text-5xl font-black text-white">{title}</h1>
+    {
+      description && (
+        <p class="text-2xl mt-4 font-medium text-white">{description}</p>
+      )
+    }
+    {
+      links && links.length > 0 && (
+        <div class="flex flex-wrap mt-8 gap-2.5">
+          {links.map(({ href, label }) => (
+            <Link href={href} label={label} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+</section>
