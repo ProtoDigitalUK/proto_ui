@@ -1,0 +1,31 @@
+---
+// Components
+import H3 from "@/components/partials/H3.astro";
+import P from "@/components/partials/P.astro";
+import Aspect from "@/components/partials/Aspect.astro";
+
+interface Props {
+  href: string;
+  title: string;
+  description?: string;
+}
+
+const { href, title, description } = Astro.props;
+---
+
+<li>
+  <a class="block ui__typography group cursor-pointer" href={href}>
+    <Aspect classes="mb-2.5 rounded-md overflow-hidden">
+      <img
+        class="block w-full h-full object-contain"
+        src="https://placehold.co/600x338"
+        loading="lazy"
+        alt="Placeholder"
+      />
+    </Aspect>
+    <H3 classes="group-hover:text-ui-accent-1 duration-200 transition-colors">
+      {title}
+    </H3>
+    {description && <P>{description}</P>}
+  </a>
+</li>

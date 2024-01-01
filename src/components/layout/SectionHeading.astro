@@ -1,0 +1,17 @@
+---
+// Components
+import H2 from "@/components/partials/H2.astro";
+import P from "@/components/partials/P.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="w-full mb-4 pb-4 border-b border-gray-200 ui__typography">
+  <H2>{title}</H2>
+  {description && <P>{description}</P>}
+</div>

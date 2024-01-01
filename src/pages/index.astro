@@ -3,6 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 // Components
 import Hero from "@/components/blocks/Hero.astro";
 import Section from "@/components/layout/Section.astro";
+import SectionHeading from "@/components/layout/SectionHeading.astro";
+import Grid from "@/components/layout/Grid.astro";
+import LinkImageCard from "@/components/cards/LinkImageCard.astro";
 ---
 
 <Layout title="Welcome to Proto UI">
@@ -17,19 +20,48 @@ import Section from "@/components/layout/Section.astro";
     ]}
   />
   <Section>
-    Non elit reprehenderit tempor cupidatat ad consequat. Velit esse mollit
-    voluptate cillum nisi. Minim labore duis occaecat cupidatat pariatur
-    exercitation aliqua est. Consectetur laborum esse ullamco sint anim nisi
-    aute duis reprehenderit non tempor cupidatat aliquip. Aute eiusmod sint do
-    et incididunt in nostrud pariatur in magna ea veniam. Consequat exercitation
-    sunt minim elit nostrud duis tempor minim mollit ex mollit id qui commodo.
-    Reprehenderit dolor duis ullamco velit dolor in cillum excepteur aliqua est
-    reprehenderit est sunt et. Eu qui sit nisi reprehenderit exercitation in
-    tempor nulla fugiat ipsum anim. Exercitation cillum ipsum elit nostrud.
-    Culpa nulla voluptate fugiat officia. Sit cillum id velit labore voluptate
-    aliqua mollit sunt et veniam. Dolore laboris sit aliqua mollit consequat
-    nulla est est occaecat nulla Lorem. Anim do exercitation eiusmod minim
-    pariatur labore. Excepteur laboris esse laborum elit dolor ipsum occaecat
-    veniam laborum.
+    <SectionHeading title="Quick Links" description="" />
+    <Grid>
+      <LinkImageCard
+        href="/getting-started"
+        title="Getting Started"
+        description="Learn how to get started with Proto UI and its supporting libraries and tools."
+      />
+      <LinkImageCard
+        href="/dev-checklist"
+        title="Dev Checklist"
+        description="A checklist to follow when developing websites, this covers design through to development and deployment."
+      />
+    </Grid>
+    <SectionHeading
+      title="Libraries & Tools"
+      description="Learn about the libraries and tools used to create and use alongside the Proto UI components."
+    />
+    <Grid>
+      <LinkImageCard
+        href="/proto-headless"
+        title="Proto Headless"
+        description="A modern headless CMS offering a delightful developer experience. Tailor Proto Headless seamlessly to your client and frontend requirements with our expressive brick, collection, and form builders. "
+      />
+      <LinkImageCard
+        href="/proto-web-components"
+        title="Proto Web Components"
+        description="A collection of web components that can be used in any web project. Where possible, these components are progressive enhanced with JavaScript to provide a delightful user experience."
+      />
+      <LinkImageCard
+        href="/proto-primitives"
+        title="Proto Primitives"
+        description="A collection of web primitive libraries that aim to provide tools to help you build accessible, performant, and resilient websites."
+      />
+    </Grid>
+    <SectionHeading
+      title="Components"
+      description="View the components that make up Proto UI."
+    />
+    <Grid>
+      <LinkImageCard href="/layouts" title="Layouts" description="" />
+      <LinkImageCard href="/bricks" title="Bricks" description="" />
+      <LinkImageCard href="/partials" title="Partials" description="" />
+    </Grid>
   </Section>
 </Layout>
