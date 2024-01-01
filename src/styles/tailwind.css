@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-details > summary {
-  list-style: none;
-}
-details > summary::-webkit-details-marker {
-  display: none;
+@layer components {
+  .ui__nav-link.current {
+    @apply after:absolute after:block after:w-0.5 after:top-0 after:-left-5 after:h-full after:bg-ui-background-accent after:rounded-r-sm;
+  }
 }

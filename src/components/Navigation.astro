@@ -1,109 +1,169 @@
 ---
 import protoLogoSvg from "../assets/proto-logo.svg";
 
-// Data
-
 const NavItems = [
   {
-    label: "Headers",
-    type: "folder",
+    label: "Home",
+    path: "/",
+    children: [],
+  },
+  {
+    label: "Getting Started",
+    path: "/getting-started",
+    children: [],
+  },
+  {
+    label: "Dev Checklist",
+    path: "/dev-checklist",
+    children: [],
+  },
+  {
+    type: "divider",
+    children: [],
+  },
+  {
+    label: "Layouts",
+    path: "/layouts",
     children: [
       {
-        label: "Header 1",
-        type: "file",
-        path: "/header-1",
+        label: "Standard",
+        path: "/standard",
       },
       {
-        label: "Header 2",
-        type: "file",
-        path: "/header-2",
-      },
-      {
-        label: "Header 3",
-        type: "file",
-        path: "/header-3",
+        label: "Article",
+        path: "/article",
       },
     ],
   },
   {
-    label: "Heros",
-    type: "folder",
+    label: "Bricks",
+    path: "/bricks",
     children: [
       {
-        label: "Hero 1",
-        type: "file",
-        path: "/hero-1",
+        label: "Headers",
+        path: "/headers",
+        children: [
+          {
+            label: "Header 1",
+            path: "/variation-1",
+          },
+          {
+            label: "Header 2",
+            path: "/variation-2",
+          },
+          {
+            label: "Header 3",
+            path: "/variation-3",
+          },
+        ],
       },
       {
-        label: "Hero 2",
-        type: "file",
-        path: "/hero-2",
+        label: "Heros",
+        path: "/heros",
+        children: [
+          {
+            label: "Hero 1",
+            path: "/variation-1",
+          },
+          {
+            label: "Hero 2",
+            path: "/variation-2",
+          },
+          {
+            label: "Hero 3",
+            path: "/variation-3",
+          },
+        ],
       },
       {
-        label: "Hero 3",
-        type: "file",
-        path: "/hero-3",
+        label: "Call to Actions",
+        path: "/call-to-actions",
+        children: [
+          {
+            label: "Call to Action 1",
+            path: "/variation-1",
+          },
+          {
+            label: "Call to Action 2",
+            path: "/variation-2",
+          },
+          {
+            label: "Call to Action 3",
+            path: "/variation-3",
+          },
+        ],
       },
     ],
   },
   {
-    label: "Call to Actions",
-    type: "folder",
+    label: "Partials",
+    path: "/partials",
     children: [
       {
-        label: "Call to Action 1",
-        type: "file",
-        path: "/call-to-action-1",
-      },
-      {
-        label: "Call to Action 2",
-        type: "file",
-        path: "/call-to-action-2",
-      },
-      {
-        label: "Call to Action 3",
-        type: "file",
-        path: "/call-to-action-3",
+        label: "Buttons",
+        path: "/buttons",
+        children: [
+          {
+            label: "Button 1",
+            path: "/variation-1",
+          },
+          {
+            label: "Button 2",
+            path: "/variation-2",
+          },
+          {
+            label: "Button 3",
+            path: "/variation-3",
+          },
+        ],
       },
     ],
   },
 ];
 ---
 
-<nav
-  class="h-screen w-[300px] bg-ui-background-alt border-r border-ui-background-border p-5"
->
+<nav class="h-screen fixed top-0 left-0 bottom-0 w-[300px] px-5 py-10">
   <img src={protoLogoSvg.src} alt="Proto Digital" class="h-6" />
   <ul class="mt-10">
     {
       NavItems.map((item) => (
-        <li class="mb-2.5 last:mb-0">
-          <details class="">
-            <summary class="text-ui-text-primary font-bold flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="16"
-                width="16"
-                viewBox="0 0 512 512"
-                class="fill-white"
-              >
-                <path d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z" />
-              </svg>
-              <span class="ml-2.5 text-white">{item.label}</span>
-            </summary>
-            <ul class="mt-2">
+        <li data-ui-nav-item class="mb-2.5 last:mb-0">
+          {item.type === "divider" ? (
+            <span class="text-sm text-ui-background-text mt-5 block font-bold border-t border-ui-background-border pt-2.5" />
+          ) : (
+            <a
+              href={item.path}
+              class="ui__nav-link relative flex items-center justify-between text-ui-background-text text-sm font-bold [&.active]:[&>span]:rotate-90 [&.current]:text-ui-background-accent transition-colors duration-200"
+            >
+              {item.label}
+              {item.children.length > 0 && (
+                <span class="fill-current block">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="8"
+                    viewBox="0 0 256 512"
+                  >
+                    <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                  </svg>
+                </span>
+              )}
+            </a>
+          )}
+          {item.children.length > 0 && (
+            <ul class="mt-2 [&.active]:block hidden pl-3 after:content-[''] after:absolute after:left-0 after:top-0 after:bottom-0 after:w-[1px] after:block after:bg-ui-background-border relative">
               {item.children.map((child) => (
                 <li class="mb-2 last:mb-0">
                   <a
-                    href={child.path}
-                    class="text-ui-text-secondary hover:text-ui-text-primary text-gray-200"
+                    href={item.path + child.path}
+                    class="block text-sm text-ui-background-text font-semibold [&.current]:text-ui-background-accent transition-colors duration-200"
                   >
                     {child.label}
                   </a>
                 </li>
               ))}
             </ul>
-          </details>
+          )}
         </li>
       ))
     }
