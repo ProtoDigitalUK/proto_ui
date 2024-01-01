@@ -2,4 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">Typewriter</Layout>
+<Layout
+  meta={{
+    title: "Typewriter",
+  }}
+  hero={{
+    title: "Typewriter",
+    breadcrumbs: [
+      {
+        label: "Proto Web Components",
+        href: "/proto-web-components",
+      },
+      {
+        label: "Typewriter",
+        href: "/proto-web-components/typewriter",
+      },
+    ],
+  }}
+>
+  Typewriter
+</Layout>

@@ -2,4 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">Cookie Controller</Layout>
+<Layout
+  meta={{
+    title: "Cookie Controller",
+  }}
+  hero={{
+    title: "Cookie Controller",
+    breadcrumbs: [
+      {
+        label: "Proto Primitives",
+        href: "/proto-primitives",
+      },
+      {
+        label: "Cookie Controller",
+        href: "/proto-primitives/cookie-controller",
+      },
+    ],
+  }}
+>
+  Cookie Controller
+</Layout>

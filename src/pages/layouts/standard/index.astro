@@ -2,4 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">Standard Layout</Layout>
+<Layout
+  meta={{
+    title: "Standard Layout",
+  }}
+  hero={{
+    title: "Standard Layout",
+    breadcrumbs: [
+      {
+        label: "Layouts",
+        href: "/layouts",
+      },
+      {
+        label: "Standard Layout",
+        href: "/layouts/standard",
+      },
+    ],
+  }}
+>
+  Standard Layout
+</Layout>

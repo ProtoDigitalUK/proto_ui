@@ -2,4 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">Sticky Header</Layout>
+<Layout
+  meta={{
+    title: "Sticky Header",
+  }}
+  hero={{
+    title: "Sticky Header",
+    breadcrumbs: [
+      {
+        label: "Proto Primitives",
+        href: "/proto-primitives",
+      },
+      {
+        label: "Sticky Header",
+        href: "/proto-primitives/sticky-header",
+      },
+    ],
+  }}
+>
+  Sticky Header
+</Layout>

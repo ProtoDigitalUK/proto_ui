@@ -2,4 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">Disclosure</Layout>
+<Layout
+  meta={{
+    title: "Disclosure",
+  }}
+  hero={{
+    title: "Disclosure",
+    breadcrumbs: [
+      {
+        label: "Proto Web Components",
+        href: "/proto-web-components",
+      },
+      {
+        label: "Disclosure",
+        href: "/proto-web-components/disclosure",
+      },
+    ],
+  }}
+>
+  Disclosure
+</Layout>

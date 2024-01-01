@@ -2,4 +2,23 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="">Call to action</Layout>
+<Layout
+  meta={{
+    title: "Call to action",
+  }}
+  hero={{
+    title: "Call to action",
+    breadcrumbs: [
+      {
+        label: "Bricks",
+        href: "/bricks",
+      },
+      {
+        label: "Call to action",
+        href: "/bricks/call-to-action",
+      },
+    ],
+  }}
+>
+  Call to action
+</Layout>

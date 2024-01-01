@@ -1,24 +1,28 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 // Components
-import Hero from "@/components/blocks/Hero.astro";
 import Section from "@/components/layout/Section.astro";
 import SectionHeading from "@/components/layout/SectionHeading.astro";
 import Grid from "@/components/layout/Grid.astro";
 import LinkImageCard from "@/components/cards/LinkImageCard.astro";
 ---
 
-<Layout title="Welcome to Proto UI">
-  <Hero
-    title="Proto Digital"
-    description="Browse and consume our collection of bricks, partials and layouts."
-    links={[
+<Layout
+  meta={{
+    title: "Homepage",
+  }}
+  hero={{
+    title: "Proto Digital",
+    description:
+      "Browse and consume our collection of bricks, partials and layouts.",
+    links: [
       {
         label: "Getting Started",
         href: "/getting-started",
       },
-    ]}
-  />
+    ],
+  }}
+>
   <Section>
     <SectionHeading title="Quick Links" description="" />
     <Grid>
@@ -32,7 +36,14 @@ import LinkImageCard from "@/components/cards/LinkImageCard.astro";
         title="Dev Checklist"
         description="A checklist to follow when developing websites, this covers design through to development and deployment."
       />
+      <LinkImageCard
+        href="/resources"
+        title="Resources"
+        description="A list of internal and external resources that we use to design, develop and test websites."
+      />
     </Grid>
+  </Section>
+  <Section>
     <SectionHeading
       title="Libraries & Tools"
       description="Learn about the libraries and tools used to create and use alongside the Proto UI components."
@@ -54,14 +65,28 @@ import LinkImageCard from "@/components/cards/LinkImageCard.astro";
         description="A collection of web primitive libraries that aim to provide tools to help you build accessible, performant, and resilient websites."
       />
     </Grid>
+  </Section>
+  <Section>
     <SectionHeading
       title="Components"
       description="View the components that make up Proto UI."
     />
     <Grid>
-      <LinkImageCard href="/layouts" title="Layouts" description="" />
-      <LinkImageCard href="/bricks" title="Bricks" description="" />
-      <LinkImageCard href="/partials" title="Partials" description="" />
+      <LinkImageCard
+        href="/bricks"
+        title="Bricks"
+        description="View our extensive list of bricks, that we use as a starting point for building performant and accessible websites."
+      />
+      <LinkImageCard
+        href="/partials"
+        title="Partials"
+        description="A collection of partial components that are used to build bricks and layouts."
+      />
+      <LinkImageCard
+        href="/layouts"
+        title="Layouts"
+        description="Here you can find pre-built layouts for a variety of different page types."
+      />
     </Grid>
   </Section>
 </Layout>

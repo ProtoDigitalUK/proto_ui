@@ -1,12 +1,23 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 // Components
-import Hero from "@/components/blocks/Hero.astro";
 import Section from "@/components/layout/Section.astro";
 ---
 
-<Layout title="Welcome to Proto UI">
-  <Hero title="Dev Checklist" />
+<Layout
+  meta={{
+    title: "Dev Checklist",
+  }}
+  hero={{
+    title: "Dev Checklist",
+    breadcrumbs: [
+      {
+        label: "Dev Checklist",
+        href: "/dev-checklist",
+      },
+    ],
+  }}
+>
   <Section>
     Non elit reprehenderit tempor cupidatat ad consequat. Velit esse mollit
     voluptate cillum nisi. Minim labore duis occaecat cupidatat pariatur

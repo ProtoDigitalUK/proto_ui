@@ -1,9 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 // Components
-import Hero from "@/components/blocks/Hero.astro";
 ---
 
-<Layout title="Welcome to Proto UI">
-  <Hero title="Getting Started" />
-</Layout>
+<Layout
+  meta={{
+    title: "Getting Started",
+  }}
+  hero={{
+    title: "Getting Started",
+    breadcrumbs: [
+      {
+        label: "Getting Started",
+        href: "/getting-started",
+      },
+    ],
+  }}
+/>

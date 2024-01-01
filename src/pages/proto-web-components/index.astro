@@ -1,9 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 // Components
-import Hero from "@/components/blocks/Hero.astro";
 ---
 
-<Layout title="">
-  <Hero title="Proto Web Components" />
-</Layout>
+<Layout
+  meta={{
+    title: "Proto Web Components",
+  }}
+  hero={{
+    title: "Proto Web Components",
+    breadcrumbs: [
+      {
+        label: "Proto Web Components",
+        href: "/proto-web-components",
+      },
+    ],
+  }}
+/>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  links: {
+    href: string;
+    label: string;
+  }[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="ui__wrapper bg-black bg-opacity-10 py-2">
+  <ul class="flex gap-2 flex-wrap">
+    <li class="flex items-center gap-2 text-sm text-white">
+      <a href={"/"} class="hover:underline">Home</a>
+      {links.length > 0 && "->"}
+    </li>
+    {
+      links.map(({ href, label }, index) => (
+        <li class="flex items-center gap-2 text-white text-sm ">
+          <a href={href} class="hover:underline">
+            {label}
+          </a>
+          {index !== links.length - 1 && "->"}
+        </li>
+      ))
+    }
+  </ul>
+</div>
