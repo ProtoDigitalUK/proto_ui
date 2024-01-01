@@ -22,6 +22,50 @@ const NavItems = [
     children: [],
   },
   {
+    label: "Proto Headless",
+    path: "/proto-headless",
+  },
+  {
+    label: "Proto Web Components",
+    path: "/proto-web-components",
+    children: [
+      {
+        label: "Disclosure",
+        path: "/disclosure",
+      },
+      {
+        label: "Typewriter",
+        path: "/typewriter",
+      },
+    ],
+  },
+  {
+    label: "Proto Primitives",
+    path: "/proto-primitives",
+    children: [
+      {
+        label: "Cookie Controller",
+        path: "/cookie-controller",
+      },
+      {
+        label: "Sticky Header",
+        path: "/sticky-header",
+      },
+      {
+        label: "Forms",
+        path: "/forms",
+      },
+      {
+        label: "Toggler",
+        path: "/toggler",
+      },
+    ],
+  },
+  {
+    type: "divider",
+    children: [],
+  },
+  {
     label: "Layouts",
     path: "/layouts",
     children: [
@@ -80,7 +124,7 @@ const NavItems = [
               class="ui__nav-link relative flex items-center justify-between text-ui-background-text text-sm font-bold [&.active]:[&>span]:rotate-90 [&.current]:text-ui-background-accent transition-colors duration-200"
             >
               {item.label}
-              {item.children.length > 0 && (
+              {item.children && item.children.length > 0 && (
                 <span class="fill-current block">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +138,7 @@ const NavItems = [
               )}
             </a>
           )}
-          {item.children.length > 0 && (
+          {item.children && item.children.length > 0 && (
             <ul class="mt-2 [&.active]:block hidden pl-3 after:content-[''] after:absolute after:left-0 after:top-0 after:bottom-0 after:w-[1px] after:block after:bg-ui-background-border relative">
               {item.children.map((child) => (
                 <li class="mb-2 last:mb-0">
