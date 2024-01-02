@@ -1,5 +1,6 @@
 ---
 import "@/styles/tailwind.css";
+import C from "@/constants.json";
 // Components
 import { ViewTransitions } from "astro:transitions";
 import Navigation from "@/components/layout/Navigation.astro";
@@ -26,6 +27,28 @@ interface Props {
 }
 
 const { meta, hero } = Astro.props;
+
+// Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: C.site_url,
+    },
+    ...(hero?.breadcrumbs?.map((breadcrumb, index) => {
+      return {
+        "@type": "ListItem",
+        position: index + 2,
+        name: breadcrumb.label,
+        item: C.site_url + breadcrumb.href,
+      };
+    }) ?? []),
+  ],
+};
 ---
 
 <!doctype html>
@@ -44,6 +67,10 @@ const { meta, hero } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{meta.title} | Proto Digital UI</title>
     <ViewTransitions />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(breadcrumbSchema)}
+    />
   </head>
   <body class="antialiased bg-ui-background">
     <main>
