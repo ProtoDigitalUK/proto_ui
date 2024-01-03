@@ -8,8 +8,13 @@ const { slug, component } = Astro.params;
 
 const brick = bricks.find((brick) => brick.slug === slug) as BrickT;
 
-const AstroComponent =
-  brick.components.find((c) => c.key === component)?.value || MissingComponent;
+const brickComponent = brick.components.find((c) => c.key === component);
 ---
 
-<AstroComponent />
+{
+  brickComponent ? (
+    <brickComponent.value {...brickComponent.props} />
+  ) : (
+    <MissingComponent />
+  )
+}

@@ -7,6 +7,7 @@ export interface BrickT {
   components: Array<{
     key: string;
     value: any;
+    props?: Record<string, any>;
   }>;
 }
 
@@ -34,6 +35,11 @@ const bricks: BrickT[] = [
       {
         key: "basic",
         value: CallToAction,
+        props: {
+          title: "Call to Action",
+          description:
+            "Labore ex officia culpa velit. Aliquip velit labore ex dolor amet in. Lorem mollit elit ipsum pariatur.",
+        },
       },
     ],
   },
