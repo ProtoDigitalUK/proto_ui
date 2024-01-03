@@ -1,0 +1,15 @@
+---
+// Data
+import bricks, { type BrickT } from "@/data/bricks";
+// Components
+import MissingComponent from "@/components/partials/MissingComponent.astro";
+
+const { slug, component } = Astro.params;
+
+const brick = bricks.find((brick) => brick.slug === slug) as BrickT;
+
+const AstroComponent =
+  brick.components.find((c) => c.key === component)?.value || MissingComponent;
+---
+
+<AstroComponent />

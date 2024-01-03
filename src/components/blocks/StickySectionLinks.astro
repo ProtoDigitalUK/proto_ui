@@ -1,0 +1,20 @@
+---
+interface Props {
+  sections: {
+    id: string;
+    label: string;
+  }[];
+}
+
+const { sections } = Astro.props;
+---
+
+<ul>
+  {
+    sections.map((section) => (
+      <li>
+        <a href={`#${section.id}`}>{section.label}</a>
+      </li>
+    ))
+  }
+</ul>

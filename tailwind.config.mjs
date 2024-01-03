@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import protoUITailwindConfig from "./proto-boiler/tailwind.config.mjs";
+import protoUITailwindConfig from "./proto-tailwind.config.mjs";
 
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],

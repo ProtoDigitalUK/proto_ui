@@ -1,0 +1,37 @@
+---
+import Layout from "@/layouts/Layout.astro";
+// Data
+import bricks, { type BrickT } from "@/data/bricks";
+
+const { slug } = Astro.params;
+
+const brick = bricks.find((brick) => brick.slug === slug) as BrickT;
+---
+
+<Layout
+  meta={{
+    title: brick.title,
+  }}
+  hero={{
+    title: brick.title,
+    breadcrumbs: [
+      {
+        label: "Bricks",
+        href: "/bricks",
+      },
+      {
+        label: brick.title,
+        href: `/bricks/${slug}`,
+      },
+    ],
+  }}
+>
+  {
+    brick.components.map((component) => (
+      <iframe
+        src={`/bricks/${slug}/${component.key}`}
+        style={{ border: "none" }}
+      />
+    ))
+  }
+</Layout>
