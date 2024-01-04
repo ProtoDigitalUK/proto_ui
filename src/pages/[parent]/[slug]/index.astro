@@ -1,0 +1,50 @@
+---
+import type { InferGetStaticParamsType, GetStaticPaths } from 'astro';
+// Data
+import components, { type ComponentT, parentDetails } from "@/data/components"
+// Components
+import Layout from "@/layouts/Layout.astro";
+
+export const getStaticPaths = (async () => {
+  return components.map((component) => ({
+    params: {
+      parent: component.parent,
+      slug: component.slug,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { parent, slug } = Astro.params as Params;
+
+const component = components.find((comp) => comp.slug === slug && comp.parent === parent) as ComponentT;
+---
+
+<Layout
+  meta={{
+    title: component.title,
+  }}
+  hero={{
+    title: component.title,
+    breadcrumbs: [
+      {
+        label: parentDetails[parent].title,
+        href: `/${parent}`
+      },
+      {
+        label: component.title,
+        href: `/${parent}/${slug}`,
+      },
+    ],
+  }}
+>
+  {
+    component.variations.map((compVariation) => (
+      <iframe
+        src={`/bricks/${slug}/${compVariation.key}`}
+        style={{ border: "none" }}
+      />
+    ))
+  }
+</Layout>

@@ -1,0 +1,47 @@
+---
+import type { InferGetStaticParamsType, GetStaticPaths } from 'astro';
+// Data
+import components, { type ComponentT } from "@/data/components";
+// Components
+import MissingComponent from "@/components/partials/MissingComponent.astro";
+
+export const getStaticPaths = (async () => {
+
+  const paths: {
+    params: {
+      parent: string;
+      slug: string;
+      variation: string;
+    };
+  }[] = [];
+
+  components.forEach((component) => {
+    component.variations.forEach((compVariation) => {
+      paths.push({
+        params: {
+          parent: component.parent,
+          slug: component.slug,
+          variation: compVariation.key,
+        },
+      });
+    });
+  });
+
+  return paths
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { slug, variation } = Astro.params as Params;
+
+const component = components.find((comp) => comp.slug === slug) as ComponentT;
+const ComponentVariation = component.variations.find((compVariation) => compVariation.key === variation);
+---
+
+{
+  ComponentVariation ? (
+    <ComponentVariation.value {...ComponentVariation.props} />
+  ) : (
+    <MissingComponent />
+  )
+}
