@@ -1,5 +1,7 @@
 ---
 import protoLogoSvg from "@/assets/proto-logo.svg";
+// Data
+import components from "@/data/components";
 
 const NavItems = [
   {
@@ -64,44 +66,32 @@ const NavItems = [
   {
     label: "Bricks",
     path: "/bricks",
-    children: [
-      {
-        label: "Header",
-        path: "/header",
-      },
-      {
-        label: "Hero",
-        path: "/hero",
-      },
-      {
-        label: "Call to Action",
-        path: "/call-to-action",
-      },
-    ],
+    children: components
+      .filter((component) => component.parent === "bricks")
+      .map((component) => ({
+        label: component.title,
+        path: `/${component.slug}`,
+      })),
   },
   {
     label: "Partials",
     path: "/partials",
-    children: [
-      {
-        label: "Button",
-        path: "/button",
-      },
-    ],
+    children: components
+      .filter((component) => component.parent === "partials")
+      .map((component) => ({
+        label: component.title,
+        path: `/${component.slug}`,
+      })),
   },
   {
     label: "Layouts",
     path: "/layouts",
-    children: [
-      {
-        label: "Standard",
-        path: "/standard",
-      },
-      {
-        label: "Article",
-        path: "/article",
-      },
-    ],
+    children: components
+      .filter((component) => component.parent === "layouts")
+      .map((component) => ({
+        label: component.title,
+        path: `/${component.slug}`,
+      })),
   },
 ];
 ---

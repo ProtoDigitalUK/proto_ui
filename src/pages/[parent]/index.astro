@@ -1,7 +1,7 @@
 ---
-import type { InferGetStaticParamsType, GetStaticPaths } from 'astro';
+import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 // Data
-import components, { parentDetails } from "@/data/components"
+import components, { parentDetails } from "@/data/components";
 // Components
 import Layout from "@/layouts/Layout.astro";
 
@@ -15,7 +15,7 @@ export const getStaticPaths = (async () => {
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
-const { parent } = Astro.params as Params
+const { parent } = Astro.params as Params;
 ---
 
 <Layout

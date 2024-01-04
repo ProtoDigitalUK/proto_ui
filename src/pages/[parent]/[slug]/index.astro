@@ -1,7 +1,7 @@
 ---
-import type { InferGetStaticParamsType, GetStaticPaths } from 'astro';
+import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 // Data
-import components, { type ComponentT, parentDetails } from "@/data/components"
+import components, { type ComponentT, parentDetails } from "@/data/components";
 // Components
 import Layout from "@/layouts/Layout.astro";
 
@@ -18,7 +18,9 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 const { parent, slug } = Astro.params as Params;
 
-const component = components.find((comp) => comp.slug === slug && comp.parent === parent) as ComponentT;
+const component = components.find(
+  (comp) => comp.slug === slug && comp.parent === parent
+) as ComponentT;
 ---
 
 <Layout
@@ -30,7 +32,7 @@ const component = components.find((comp) => comp.slug === slug && comp.parent ==
     breadcrumbs: [
       {
         label: parentDetails[parent].title,
-        href: `/${parent}`
+        href: `/${parent}`,
       },
       {
         label: component.title,

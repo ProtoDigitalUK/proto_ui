@@ -1,5 +1,5 @@
 // Bricks
-import CallToAction from "@/components/proto/bricks/CallToAction/CallToAction.astro";
+import CallToAction from "@/proto/bricks/CallToAction/CallToAction.astro";
 // Layouts
 // Partials
 
