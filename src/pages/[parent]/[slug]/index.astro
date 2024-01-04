@@ -44,9 +44,16 @@ const component = components.find(
   {
     component.variations.map((compVariation) => (
       <iframe
+        class="variation-iframe w-px min-w-full"
         src={`/bricks/${slug}/${compVariation.key}`}
         style={{ border: "none" }}
       />
     ))
   }
 </Layout>
+
+<script>
+  import { iframeResizer } from "iframe-resizer";
+
+  iframeResizer({ log: false }, ".variation-iframe");
+</script>
