@@ -1,5 +1,6 @@
 // Bricks
 import CallToAction from "@/proto/components/bricks/CallToAction/CallToAction.astro";
+import CallToActionRaw from "@/proto/components/bricks/CallToAction/CallToAction.astro?raw";
 // Layouts
 // Partials
 
@@ -11,7 +12,10 @@ export interface ComponentT {
   variations: Array<{
     key: string;
     value: any;
+    raw: string;
+    title: string;
     props?: Record<string, any>;
+    dependencies?: string[];
   }>;
 }
 
@@ -42,6 +46,8 @@ const bricks: ComponentT[] = [
       {
         key: "basic",
         value: CallToAction,
+        raw: CallToActionRaw,
+        title: "Basic",
         props: {
           title: "Call to Action",
           description:

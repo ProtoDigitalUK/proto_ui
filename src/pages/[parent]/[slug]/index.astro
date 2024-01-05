@@ -4,6 +4,8 @@ import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 import components, { type ComponentT, parentDetails } from "@/data/components";
 // Components
 import Layout from "@/layouts/Layout.astro";
+import StickySectionLinks from "@/components/blocks/StickySectionLinks.astro";
+import Section from "@/components/layout/Section.astro";
 
 export const getStaticPaths = (async () => {
   return components.map((component) => ({
@@ -41,15 +43,44 @@ const component = components.find(
     ],
   }}
 >
-  {
-    component.variations.map((compVariation) => (
-      <iframe
-        class="variation-iframe w-px min-w-full"
-        src={`/bricks/${slug}/${compVariation.key}`}
-        style={{ border: "none" }}
-      />
-    ))
-  }
+  <StickySectionLinks
+    sections={[
+      {
+        id: "overview",
+        label: "Overview",
+      },
+      {
+        id: "components",
+        label: "Components",
+      },
+      {
+        id: "propertise",
+        label: "Propertise",
+      },
+      {
+        id: "integration",
+        label: "Integration",
+      },
+      {
+        id: "dependencies",
+        label: "Dependencies",
+      },
+    ]}
+  />
+  <Section>
+    {
+      component.variations.map((compVariation) => (
+        <>
+          <iframe
+            class="variation-iframe w-px min-w-full"
+            src={`/bricks/${slug}/${compVariation.key}`}
+            style={{ border: "none" }}
+          />
+          <pre>{compVariation.raw}</pre>
+        </>
+      ))
+    }
+  </Section>
 </Layout>
 
 <script>
