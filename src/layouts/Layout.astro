@@ -1,11 +1,13 @@
 ---
-import "@/styles/tailwind.css";
-import C from "@/constants.json";
+import "src/styles/tailwind.css";
+import C from "src/constants.json";
 // Components
 import { ViewTransitions } from "astro:transitions";
-import Navigation from "@/components/layout/Navigation.astro";
-import Hero, { type Props as HeroProps } from "@/components/blocks/Hero.astro";
-import CookieController from "@/components/layout/CookieController.astro";
+import Navigation from "src/components/layout/Navigation.astro";
+import Hero, {
+  type Props as HeroProps,
+} from "src/components/blocks/Hero.astro";
+import CookieController from "src/components/layout/CookieController.astro";
 
 interface Props {
   meta: {

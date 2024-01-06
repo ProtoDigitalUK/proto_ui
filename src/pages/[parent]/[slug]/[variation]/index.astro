@@ -1,10 +1,10 @@
 ---
-import "@/styles/tailwind.css";
+import "src/styles/tailwind.css";
 import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 // Data
-import components, { type ComponentT } from "@/data/components";
+import components, { type ComponentT } from "src/data/components";
 // Components
-import MissingComponent from "@/components/partials/MissingComponent.astro";
+import MissingComponent from "src/components/partials/MissingComponent.astro";
 
 export const getStaticPaths = (async () => {
   const paths: {
@@ -49,5 +49,5 @@ const ComponentVariation = component.variations.find(
 }
 
 <script>
-  import "@/typescript/modules/iframe-resizer";
+  import "src/typescript/modules/iframe-resizer";
 </script>

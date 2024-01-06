@@ -1,4 +1,4 @@
-import { type ComponentT } from "@/data/components";
+import { type ComponentT } from "src/data/components";
 
 interface ComponentCardProps {
   component: ComponentT;

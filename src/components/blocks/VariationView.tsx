@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { type VariationT } from "@/data/components";
+import { type VariationT } from "src/data/components";
 // Components
-import CodePreview from "@/components/blocks/CodePreview";
-import Section from "@/components/layout/Section.tsx";
-import BuilderConfig from "@/components/blocks/BuilderConfig.tsx";
-import Dependencies from "@/components/blocks/Dependencies.tsx";
+import CodePreview from "src/components/blocks/CodePreview";
+import Section from "src/components/layout/Section.tsx";
+import BuilderConfig from "src/components/blocks/BuilderConfig.tsx";
+import Dependencies from "src/components/blocks/Dependencies.tsx";
 
 interface VariationViewProps {
   parent: string;

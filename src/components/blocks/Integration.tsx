@@ -1,6 +1,6 @@
 // Components
-import Section from "@/components/layout/Section.tsx";
-import SectionHeading from "@/components/layout/SectionHeading.tsx";
+import Section from "src/components/layout/Section.tsx";
+import SectionHeading from "src/components/layout/SectionHeading.tsx";
 
 const Integration: React.FC = () => {
   // --------------------------

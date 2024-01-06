@@ -1,7 +1,7 @@
-import { type VariationT } from "@/data/components";
+import { type VariationT } from "src/data/components";
 // Components
-import Section from "@/components/layout/Section.tsx";
-import SectionHeading from "@/components/layout/SectionHeading.tsx";
+import Section from "src/components/layout/Section.tsx";
+import SectionHeading from "src/components/layout/SectionHeading.tsx";
 
 interface DependenciesProps {
   dependencies: VariationT["dependencies"];
