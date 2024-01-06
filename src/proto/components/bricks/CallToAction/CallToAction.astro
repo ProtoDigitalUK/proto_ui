@@ -7,8 +7,16 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<section>
-  <h2>{title}</h2>
-  <p>{description}</p>
-  <a href="#" class="button">Call to action</a>
+<section class="w-full bg-ui-accent-1 rounded-t-md">
+  <div class="ui__wrapper py-20">
+    <h1 class="text-5xl font-black text-white">{title}</h1>
+    {
+      description && (
+        <p class="text-2xl mt-4 font-medium text-white">{description}</p>
+      )
+    }
+    <div class="flex flex-wrap mt-8 gap-2.5">
+      <a href="#" class="button" class="text-white underline">Call to action</a>
+    </div>
+  </div>
 </section>

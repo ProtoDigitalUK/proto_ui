@@ -16,6 +16,7 @@ export default {
         "ui-border": "#D4D4D4",
 
         "ui-accent-1": "#6554FB",
+        "ui-accent-1-light": "#7C6DFB",
         "ui-accent-2": "#ECE24E",
         "ui-accent-3": "#69F380",
       },

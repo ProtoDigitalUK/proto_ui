@@ -4,7 +4,7 @@ import C from "@/constants.json";
 // Components
 import { ViewTransitions } from "astro:transitions";
 import Navigation from "@/components/layout/Navigation.astro";
-import Hero from "@/components/blocks/Hero.astro";
+import Hero, { type Props as HeroProps } from "@/components/blocks/Hero.astro";
 import CookieController from "@/components/layout/CookieController.astro";
 
 interface Props {
@@ -12,18 +12,7 @@ interface Props {
     title: string;
     description?: string;
   };
-  hero?: {
-    title: string;
-    description?: string;
-    links?: {
-      href: string;
-      label: string;
-    }[];
-    breadcrumbs?: {
-      href: string;
-      label: string;
-    }[];
-  };
+  hero?: HeroProps;
 }
 
 const { meta, hero } = Astro.props;
@@ -67,6 +56,7 @@ const breadcrumbSchema = {
     <meta name="generator" content={Astro.generator} />
     <title>{meta.title} | Proto Digital UI</title>
     <ViewTransitions />
+    <meta name="robots" content="noindex" />
     <script
       type="application/ld+json"
       set:html={JSON.stringify(breadcrumbSchema)}
@@ -76,18 +66,9 @@ const breadcrumbSchema = {
     <main>
       <Navigation />
       <div
-        class="bg-white mt-5 mr-5 ml-[300px] min-h-[calc(100vh-20px)] rounded-t-md overflow-hidden"
+        class="bg-white mt-5 mr-5 ml-[300px] min-h-[calc(100vh-20px)] rounded-t-md"
       >
-        {
-          hero !== undefined && (
-            <Hero
-              title={hero.title}
-              description={hero.description}
-              links={hero.links}
-              breadcrumbs={hero.breadcrumbs}
-            />
-          )
-        }
+        {hero !== undefined && <Hero {...hero} />}
         <slot />
       </div>
     </main>

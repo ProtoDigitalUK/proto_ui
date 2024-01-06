@@ -1,10 +1,13 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "P:/Projects/ProtoDigital/proto_ui",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "jsx": "react"
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

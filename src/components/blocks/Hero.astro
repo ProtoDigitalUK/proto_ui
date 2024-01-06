@@ -3,23 +3,27 @@
 import Link from "@/components/partials/Link.astro";
 import Breadcrumbs from "@/components/blocks/Breadcrumbs.astro";
 
-interface Props {
+export interface Props {
   title: string;
   description?: string;
-  links?: {
-    href: string;
-    label: string;
-  }[];
-  breadcrumbs?: {
-    href: string;
-    label: string;
-  }[];
+  links?:
+    | {
+        href: string;
+        label: string;
+      }[]
+    | undefined;
+  breadcrumbs?:
+    | {
+        href: string;
+        label: string;
+      }[]
+    | undefined;
 }
 
 const { breadcrumbs, title, description, links } = Astro.props;
 ---
 
-<section class="w-full bg-ui-accent-1">
+<section class="w-full bg-ui-accent-1 rounded-t-md">
   <Breadcrumbs links={breadcrumbs || []} />
   <div class="ui__wrapper py-20">
     <h1 class="text-5xl font-black text-white">{title}</h1>
