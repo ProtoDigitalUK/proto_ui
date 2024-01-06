@@ -1,7 +1,7 @@
 // Bricks
-import CallToAction from "src/proto/components/bricks/CallToAction/CallToAction.astro";
-import CallToActionRaw from "src/proto/components/bricks/CallToAction/CallToAction.astro?raw";
-import CallToActionBuilder from "src/proto/components/bricks/CallToAction/CallToAction.builder?raw";
+import CallToAction from "@/proto/components/bricks/CallToAction/CallToAction.astro";
+import CallToActionRaw from "@/proto/components/bricks/CallToAction/CallToAction.astro?raw";
+import CallToActionBuilder from "@/proto/components/bricks/CallToAction/CallToAction.builder?raw";
 // Layouts
 // Partials
 

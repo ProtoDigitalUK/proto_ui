@@ -1,7 +1,7 @@
 // Components
-import CodePreview from "src/components/blocks/CodePreview";
-import Section from "src/components/layout/Section.tsx";
-import SectionHeading from "src/components/layout/SectionHeading.tsx";
+import CodePreview from "@/components/blocks/CodePreview";
+import Section from "@/components/layout/Section.tsx";
+import SectionHeading from "@/components/layout/SectionHeading.tsx";
 
 interface BuilderConfigProps {
   code: string | undefined;

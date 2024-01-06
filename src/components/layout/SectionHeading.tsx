@@ -1,6 +1,6 @@
 // Components
-import H2 from "src/components/partials/H2.tsx";
-import P from "src/components/partials/P.tsx";
+import H2 from "@/components/partials/H2.tsx";
+import P from "@/components/partials/P.tsx";
 
 interface SectionHeadingProps {
   id?: string;

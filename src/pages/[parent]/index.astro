@@ -1,9 +1,9 @@
 ---
 import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 // Data
-import components, { parentDetails } from "src/data/components";
+import components, { parentDetails } from "@/data/components";
 // Components
-import Layout from "src/layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 
 export const getStaticPaths = (async () => {
   return components.map((component) => ({

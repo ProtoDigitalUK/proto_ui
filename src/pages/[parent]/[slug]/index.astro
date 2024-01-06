@@ -1,16 +1,13 @@
 ---
 import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 // Data
-import components, {
-  type ComponentT,
-  parentDetails,
-} from "src/data/components";
+import components, { type ComponentT, parentDetails } from "@/data/components";
 // Components
-import Layout from "src/layouts/Layout.astro";
-import StickySectionLinks from "src/components/blocks/StickySectionLinks.tsx";
-import P from "src/components/partials/P.tsx";
-import VariationView from "src/components/blocks/VariationView";
-import Integration from "src/components/blocks/Integration";
+import Layout from "@/layouts/Layout.astro";
+import StickySectionLinks from "@/components/blocks/StickySectionLinks.tsx";
+import P from "@/components/partials/P.tsx";
+import VariationView from "@/components/blocks/VariationView";
+import Integration from "@/components/blocks/Integration";
 
 export const getStaticPaths = (async () => {
   return components.map((component) => ({
