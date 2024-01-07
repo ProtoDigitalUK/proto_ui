@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import hljs from "highlight.js";
 import typescript from "highlight.js/lib/languages/typescript";
 import "highlight.js/styles/atom-one-dark.css";
@@ -11,20 +11,25 @@ const CodePreview: React.FC<CodePreviewProps> = ({ code }) => {
   // -----------------------------
   // State
   const [getCopied, setCopied] = useState<boolean>(false);
+  const codeRef = useRef<HTMLElement>(null);
 
   // -----------------------------
   // Effects
   useEffect(() => {
+    if (!codeRef.current) return;
     hljs.registerLanguage("typescript", typescript);
-    hljs.highlightAll();
-  }, []);
+
+    hljs.highlightElement(codeRef.current);
+  }, [code]);
 
   // -----------------------------
   // Render
   return (
     <div className="relative">
       <pre>
-        <code className={"language-typescript"}>{code}</code>
+        <code ref={codeRef} className={"language-typescript"}>
+          {code}
+        </code>
       </pre>
       <button
         onClick={() => {

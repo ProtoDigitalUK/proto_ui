@@ -54,7 +54,7 @@ const VariationView: React.FC<VariationViewProps> = (props) => {
         <div id="components">
           <iframe
             className="variation-iframe w-px min-w-full border border-b-0 border-ui-border rounded-t-md bg-white"
-            src={`/${props.parent}/${props.slug}/${getActiveVariation?.key}`}
+            src={`/${props.parent}/${props.slug}/${getActiveVariation.key}`}
           />
           <div className="relative rounded-b-md overflow-hidden">
             <CodePreview code={getActiveVariation.raw} />

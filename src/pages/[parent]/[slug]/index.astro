@@ -87,4 +87,7 @@ const component = components.find(
   import { iframeResizer } from "iframe-resizer";
 
   iframeResizer({ log: false }, ".variation-iframe");
+  document.addEventListener("astro:after-swap", () => {
+    iframeResizer({ log: false }, ".variation-iframe");
+  });
 </script>

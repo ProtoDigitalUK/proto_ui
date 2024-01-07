@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": "P:/Projects/ProtoDigital/proto_ui",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
