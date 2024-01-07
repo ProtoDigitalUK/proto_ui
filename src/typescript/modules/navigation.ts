@@ -22,7 +22,10 @@ const InitNavigation = () => {
 
   const links = document.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>;
   links.forEach((link) => {
-    if (link.href === window.location.href) {
+    if (
+      link.href === window.location.href ||
+      link.href === window.location.href + "/"
+    ) {
       link.classList.add("current");
     }
   });

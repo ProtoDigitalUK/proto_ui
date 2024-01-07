@@ -19,7 +19,11 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       className="w-full mb-5 ui__typography border-b border-ui-border pb-5"
     >
       <H2>{title}</H2>
-      {description && <P>{description}</P>}
+      {description && (
+        <div className="max-w-3xl">
+          <P>{description}</P>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,11 +1,11 @@
 interface SectionProps {
+  id?: string;
   children: React.ReactNode;
-  isLast?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ children, isLast }) => {
+const Section: React.FC<SectionProps> = ({ id, children }) => {
   return (
-    <section className={`my-10 mb-14 last:mb-10 ${isLast ? "!mb-0" : ""}`}>
+    <section id={id} className={`mt-10 last:pb-10`}>
       <div className="ui__wrapper">{children}</div>
     </section>
   );

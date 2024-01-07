@@ -8,6 +8,8 @@ interface BuilderConfigProps {
 }
 
 const BuilderConfig: React.FC<BuilderConfigProps> = ({ code }) => {
+  if (!code) return null;
+
   return (
     <Section>
       <SectionHeading
@@ -15,17 +17,9 @@ const BuilderConfig: React.FC<BuilderConfigProps> = ({ code }) => {
         title="Builder Config"
         description="If you're using Proto Headless CMS, you can use the following code snippet to quiclly get the brick configured."
       />
-      {code ? (
-        <div className="rounded-md overflow-hidden">
-          <CodePreview code={code} />
-        </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center w-full h-full">
-          <p className="text-2xl font-bold text-gray-500">
-            No variations found
-          </p>
-        </div>
-      )}
+      <div className="rounded-md overflow-hidden">
+        <CodePreview code={code} />
+      </div>
     </Section>
   );
 };

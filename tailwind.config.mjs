@@ -19,6 +19,9 @@ export default {
         "ui-accent-1-light": "#7C6DFB",
         "ui-accent-2": "#ECE24E",
         "ui-accent-3": "#69F380",
+
+        "ui-text-body": "#4B4B4B",
+        "ui-text-title": "#232323",
       },
     },
   },

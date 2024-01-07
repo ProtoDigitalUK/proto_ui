@@ -5,9 +5,7 @@ import components, { type ComponentT, parentDetails } from "@/data/components";
 // Components
 import Layout from "@/layouts/Layout.astro";
 import StickySectionLinks from "@/components/blocks/StickySectionLinks.tsx";
-import P from "@/components/partials/P.tsx";
 import VariationView from "@/components/blocks/VariationView";
-import Integration from "@/components/blocks/Integration";
 
 export const getStaticPaths = (async () => {
   return components.map((component) => ({
@@ -33,6 +31,7 @@ const component = components.find(
   }}
   hero={{
     title: component.title,
+    description: component.overview,
     breadcrumbs: [
       {
         label: parentDetails[parent].title,
@@ -48,10 +47,6 @@ const component = components.find(
   <StickySectionLinks
     sections={[
       {
-        id: "overview",
-        label: "Overview",
-      },
-      {
         id: "components",
         label: "Components",
       },
@@ -63,24 +58,14 @@ const component = components.find(
         id: "dependencies",
         label: "Dependencies",
       },
-      {
-        id: "integration",
-        label: "Integration",
-      },
     ]}
   />
-  <section id="overview" class="ui__wrapper my-10">
-    <P>
-      {component.overview}
-    </P>
-  </section>
   <VariationView
     variations={component.variations}
     slug={slug}
     parent={parent}
     client:load
   />
-  <Integration />
 </Layout>
 
 <script>

@@ -4,6 +4,9 @@ import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 import components, { parentDetails } from "@/data/components";
 // Components
 import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/layout/Section";
+import SectionHeading from "@/components/layout/SectionHeading";
+import ComponentCard from "@/components/cards/ComponentCard";
 
 export const getStaticPaths = (async () => {
   return components.map((component) => ({
@@ -31,4 +34,18 @@ const { parent } = Astro.params as Params;
       },
     ],
   }}
-/>
+>
+  <Section>
+    <SectionHeading
+      title="Components"
+      description={parentDetails[parent].description}
+    />
+    <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+      {
+        components
+          .filter((component) => component.parent === parent)
+          .map((component) => <ComponentCard component={component} />)
+      }
+    </ul>
+  </Section>
+</Layout>
