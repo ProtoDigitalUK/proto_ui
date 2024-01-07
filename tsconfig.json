@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": "P:/Projects/ProtoDigital/proto_ui",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
